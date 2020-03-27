@@ -28,6 +28,7 @@
       <w>overcurrent</w>
       <w>pinout</w>
       <w>pololu</w>
+      <w>pullup</w>
       <w>risetime</w>
       <w>sclk</w>
       <w>vbat</w>

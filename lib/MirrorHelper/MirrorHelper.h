@@ -43,7 +43,7 @@ private:
 
 	void stopAdjust();
 
-//	static void coast();
+	static void coast();
 
 	static void coastFold();
 

@@ -13,7 +13,7 @@ MirrorHelper::MirrorHelper(ModuleHelper& module) : _module(module) {
 	previous_fold_ms = millis();
 	controller.begin();
 	stopFold();
-//	stopAdjust();
+	stopAdjust();
 	folding = false;
 	adjusting = false;
 	previousAction = MIRROR_ACTION::STOP;
@@ -109,7 +109,7 @@ void MirrorHelper::adjustRight() {
 }
 
 void MirrorHelper::adjustVertical(bool dir) {
-//	coast();
+	coast();
 	if(dir) {
 		controller.configHB(controller.TLE_HB1, controller.TLE_FLOATING,controller.TLE_NOPWM);
 		controller.configHB(controller.TLE_HB5, controller.TLE_FLOATING,controller.TLE_NOPWM);
@@ -128,7 +128,7 @@ void MirrorHelper::adjustVertical(bool dir) {
 }
 
 void MirrorHelper::adjustHorizontal(bool dir) {
-//	coast();
+	coast();
 	if(dir) {
 		controller.configHB(controller.TLE_HB1, controller.TLE_LOW, controller.TLE_NOPWM);
 		controller.configHB(controller.TLE_HB5, controller.TLE_LOW, controller.TLE_NOPWM);
@@ -162,19 +162,19 @@ void MirrorHelper::foldMirror() {
 }
 
 void MirrorHelper::stopAdjust() {
-//	coast();
+	coast();
 	previousAction = MIRROR_ACTION::STOP;
 	adjusting = false;
 }
 
-//void MirrorHelper::coast() {
-//	controller.configHB(controller.TLE_HB1, controller.TLE_LOW, controller.TLE_NOPWM);
-//	controller.configHB(controller.TLE_HB5, controller.TLE_LOW, controller.TLE_NOPWM);
-//	controller.configHB(controller.TLE_HB2, controller.TLE_LOW, controller.TLE_NOPWM);
-//	controller.configHB(controller.TLE_HB8, controller.TLE_LOW,controller.TLE_NOPWM);
-//	controller.configHB(controller.TLE_HB6, controller.TLE_LOW, controller.TLE_NOPWM);
-//	controller.configHB(controller.TLE_HB4, controller.TLE_LOW,controller.TLE_NOPWM);
-//}
+void MirrorHelper::coast() {
+	controller.configHB(controller.TLE_HB1, controller.TLE_FLOATING, controller.TLE_NOPWM);
+	controller.configHB(controller.TLE_HB5, controller.TLE_FLOATING, controller.TLE_NOPWM);
+	controller.configHB(controller.TLE_HB2, controller.TLE_FLOATING, controller.TLE_NOPWM);
+	controller.configHB(controller.TLE_HB8, controller.TLE_FLOATING,controller.TLE_NOPWM);
+	controller.configHB(controller.TLE_HB6, controller.TLE_FLOATING, controller.TLE_NOPWM);
+	controller.configHB(controller.TLE_HB4, controller.TLE_FLOATING,controller.TLE_NOPWM);
+}
 
 void MirrorHelper::coastFold() {
 	digitalWrite(DRV_IN1, LOW);
