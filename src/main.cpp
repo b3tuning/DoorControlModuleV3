@@ -4,7 +4,7 @@
 #include <Arduino.h>
 
 #include <MirrorHelper.h>
-//#include <WindowHelper.h>
+#include <WindowHelper.h>
 #include <ConfigHelper.h>
 #include <ButtonHelper.h>
 #include <ModuleHelper.h>
@@ -134,8 +134,8 @@ ModuleHelper moduleHelper(state, module);
 //CommsHelper  commsHelper;
 ButtonHelper buttonHelper(moduleHelper);
 MirrorHelper mirrorHelper(moduleHelper);
-//WindowHelper windowHelper(moduleHelper);
-
+WindowHelper windowHelper(moduleHelper);
+//
 void setup() {
 	Serial.begin(9600);
 	while(!Serial) {
@@ -186,6 +186,6 @@ void setup() {
 
 void loop() {
 	buttonHelper.update();
-//	windowHelper.update();
+	windowHelper.update();
 	mirrorHelper.update();
 }

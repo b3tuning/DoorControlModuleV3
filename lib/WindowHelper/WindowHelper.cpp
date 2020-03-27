@@ -51,8 +51,6 @@ void WindowHelper::update() {
 	// stopWindow();
 }
 
-// PRIVATE
-
 /**
  * Using WINDOW_ACTION, decide what to do with the windowMotor
  */

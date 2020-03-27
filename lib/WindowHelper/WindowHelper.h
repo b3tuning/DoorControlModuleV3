@@ -18,7 +18,7 @@ public:
 	void update();
 
 private:
-	ModuleHelper&  _module;
+	ModuleHelper& _module;
 	bool          autoUp;
 	bool          autoDown;
 	WINDOW_ACTION previousAction;
