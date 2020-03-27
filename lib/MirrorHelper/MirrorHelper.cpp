@@ -12,8 +12,8 @@ TLE94108 controller = TLE94108();
 MirrorHelper::MirrorHelper(ModuleHelper& module) : _module(module) {
 	previous_fold_ms = millis();
 	controller.begin();
-//	stopFold();
-//	stopAdjust();
+	stopFold();
+	stopAdjust();
 	folding = false;
 	adjusting = false;
 	previousAction = MIRROR_ACTION::STOP;
