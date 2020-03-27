@@ -154,8 +154,8 @@ void setup() {
 	pinMode(DRV_IN2, OUTPUT);
 	pinMode(DRV_FAULT_IN, INPUT_PULLUP);
 
-	pinMode(TLE_EN, OUTPUT);
-	pinMode(TLE_SS, OUTPUT);
+//	pinMode(TLE_EN, OUTPUT);
+//	pinMode(TLE_SS, OUTPUT);
 	pinMode(TLE_MOSI, OUTPUT);
 	pinMode(TLE_MISO, INPUT_PULLUP);
 	pinMode(TLE_SCK, OUTPUT);
@@ -175,8 +175,8 @@ void setup() {
 	digitalWrite(POLOLU_PWM, LOW);
 	digitalWrite(DRV_IN1, LOW);
 	digitalWrite(DRV_IN2, LOW);
-	digitalWrite(TLE_EN, LOW);
-	digitalWrite(TLE_SS, LOW);
+//	digitalWrite(TLE_EN, LOW);
+//	digitalWrite(TLE_SS, LOW);
 	digitalWrite(TLE_MOSI, LOW);
 	digitalWrite(TLE_SCK, LOW);
 	digitalWrite(D_MIR, LOW);

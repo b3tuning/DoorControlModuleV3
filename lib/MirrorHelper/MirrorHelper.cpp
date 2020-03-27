@@ -12,8 +12,8 @@ TLE94108 controller = TLE94108();
 MirrorHelper::MirrorHelper(ModuleHelper& module) : _module(module) {
 	previous_fold_ms = millis();
 	controller.begin();
-	stopFold();
-	stopAdjust();
+//	stopFold();
+//	stopAdjust();
 	folding = false;
 	adjusting = false;
 	previousAction = MIRROR_ACTION::STOP;
@@ -115,8 +115,8 @@ void MirrorHelper::adjustVertical(bool dir) {
 		controller.configHB(controller.TLE_HB5, controller.TLE_FLOATING,controller.TLE_NOPWM);
 		controller.configHB(controller.TLE_HB2, controller.TLE_LOW, controller.TLE_NOPWM);
 		controller.configHB(controller.TLE_HB8, controller.TLE_LOW, controller.TLE_NOPWM);
-		controller.configHB(controller.TLE_HB6, controller.TLE_LOW, controller.TLE_NOPWM);
-		controller.configHB(controller.TLE_HB4, controller.TLE_LOW,controller.TLE_NOPWM);
+		controller.configHB(controller.TLE_HB6, controller.TLE_HIGH, controller.TLE_NOPWM);
+		controller.configHB(controller.TLE_HB4, controller.TLE_HIGH,controller.TLE_NOPWM);
 	} else {
 		controller.configHB(controller.TLE_HB1, controller.TLE_FLOATING, controller.TLE_NOPWM);
 		controller.configHB(controller.TLE_HB5, controller.TLE_FLOATING, controller.TLE_NOPWM);
