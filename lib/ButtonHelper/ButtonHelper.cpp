@@ -1,5 +1,5 @@
 //
-// Created by Bucky Fellini on 3/20/20.
+// Created by b3tuning@gmail.com 3/20/20.
 //
 
 #include <ButtonHelper.h>
@@ -56,7 +56,7 @@ void ButtonHelper::clearMirrorSelected() {
 }
 
 void ButtonHelper::writeMirrorSelectedPins(bool driver, bool passenger) {
-	_module._state.driverMirrorSelected = driver;
+	_module._state.driverMirrorSelected    = driver;
 	_module._state.passengerMirrorSelected = passenger;
 	digitalWrite(D_MIR, driver);
 	digitalWrite(P_MIR, passenger);
@@ -64,20 +64,19 @@ void ButtonHelper::writeMirrorSelectedPins(bool driver, bool passenger) {
 }
 
 void ButtonHelper::getMirrorSelect() {
-	_module._state.mirrorSelect = convertAnalogToMirrorSelect(analogRead
-			(MIR_SEL_IN));
+	_module._state.mirrorSelect = readAsMirrorSelect(MIR_SEL_IN);
 }
 
 void ButtonHelper::getMirrorAction() {
-	_module._state.mirrorAction = convertAnalogToMirrorAction(analogRead(MIR_ADJ_IN));
+	_module._state.mirrorAction = readAsMirrorAction(MIR_ADJ_IN);
 }
 
 void ButtonHelper::getDriverWindowAction() {
-	_module._state.driverWindowAction = convertAnalogToWindowAction(analogRead(D_WIN_IN));
+	_module._state.driverWindowAction = readAsWindowAction(D_WIN_IN);
 }
 
 void ButtonHelper::getPassengerWindowAction() {
-	_module._state.passengerWindowAction = convertAnalogToWindowAction(analogRead(P_WIN_IN));
+	_module._state.passengerWindowAction = readAsWindowAction(P_WIN_IN);
 }
 
 void ButtonHelper::getIlluminateState() {
@@ -92,8 +91,8 @@ void ButtonHelper::illuminate() const {
 	digitalWrite(ILLUM_OUT, _module._state.illuminate);
 }
 
-MIRROR_ACTION ButtonHelper::convertAnalogToMirrorAction(int value) {
-	switch(value) {
+MIRROR_ACTION ButtonHelper::readAsMirrorAction(uint8_t pin) {
+	switch(analogRead(pin)) {
 		case 13:
 		case 14:
 		case 15:
@@ -119,8 +118,8 @@ MIRROR_ACTION ButtonHelper::convertAnalogToMirrorAction(int value) {
 	}
 }
 
-MIRROR_SELECT ButtonHelper::convertAnalogToMirrorSelect(int value) {
-	switch(value) {
+MIRROR_SELECT ButtonHelper::readAsMirrorSelect(uint8_t pin) {
+	switch(analogRead(pin)) {
 		case 13:
 		case 14:
 		case 15:
@@ -141,8 +140,8 @@ MIRROR_SELECT ButtonHelper::convertAnalogToMirrorSelect(int value) {
 	}
 }
 
-WINDOW_ACTION ButtonHelper::convertAnalogToWindowAction(int value) {
-	switch(value) {
+WINDOW_ACTION ButtonHelper::readAsWindowAction(uint8_t pin) {
+	switch(analogRead(pin)) {
 		case 12:
 		case 13:
 		case 14:

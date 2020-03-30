@@ -1,5 +1,5 @@
 //
-// Created by Bucky Fellini on 3/20/20.
+// Created by b3tuning@gmail.com 3/20/20.
 //
 
 #include <ModuleHelper.h>
@@ -11,7 +11,7 @@
 class CommsHelper {
 public:
 	CommsHelper(ModuleHelper& module, MODULE_STATE& rxData, EasyTransfer& ETin,
-			EasyTransfer& ETout);
+				EasyTransfer& ETout);
 
 	void update();
 

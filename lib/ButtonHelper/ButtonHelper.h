@@ -1,5 +1,5 @@
 //
-// Created by Bucky Fellini on 3/20/20.
+// Created by b3tuning@gmail.com 3/20/20.
 //
 
 #ifndef DOORCONTROL_BUTTONHELPER_H
@@ -16,7 +16,7 @@ public:
 	void update();
 
 private:
-	ModuleHelper&  _module;
+	ModuleHelper& _module;
 	unsigned long previousMirrorMillis;
 
 	void selectMirror();
@@ -41,11 +41,11 @@ private:
 
 	void illuminate() const;
 
-	static MIRROR_ACTION convertAnalogToMirrorAction(int value);
+	static MIRROR_ACTION readAsMirrorAction(uint8_t pin);
 
-	static MIRROR_SELECT convertAnalogToMirrorSelect(int value);
+	static MIRROR_SELECT readAsMirrorSelect(uint8_t pin);
 
-	static WINDOW_ACTION convertAnalogToWindowAction(int value);
+	static WINDOW_ACTION readAsWindowAction(uint8_t pin);
 };
 
 #endif //DOORCONTROL_BUTTONHELPER_H

@@ -1,5 +1,5 @@
 //
-// Created by Bucky Fellini on 3/20/20.
+// Created by b3tuning@gmail.com 3/20/20.
 //
 
 #ifndef DOORCONTROL_MODULEHELPER_H
@@ -50,7 +50,7 @@ public:
 	ModuleHelper(MODULE_STATE& state, MODULE& module);
 
 	MODULE_STATE& _state;
-	MODULE&       _module;
+	MODULE      & _module;
 
 private:
 	static bool readFoldState();
