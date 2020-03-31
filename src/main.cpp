@@ -9,7 +9,7 @@
 #include <ConfigHelper.h>
 #include <ButtonHelper.h>
 #include <ModuleHelper.h>
-//#include <CommsHelper.h>
+#include <CommsHelper.h>
 
 /**
  * ******************************************************************************
@@ -131,12 +131,14 @@ MODULE module = MODULE::DRIVER;
 
 //ConfigHelper config;
 MODULE_STATE state;
+MODULE_STATE rxData;
+EasyTransfer in, out;
 ModuleHelper moduleHelper(state, module);
-//CommsHelper  commsHelper;
+CommsHelper  commsHelper(moduleHelper, rxData, in, out);
 ButtonHelper buttonHelper(moduleHelper);
 MirrorHelper mirrorHelper(moduleHelper);
 WindowHelper windowHelper(moduleHelper);
-//
+
 void setup() {
 	Serial.begin(9600);
 	while(!Serial) {
@@ -187,6 +189,7 @@ void setup() {
 
 void loop() {
 	buttonHelper.update();
+	commsHelper.update();
 	windowHelper.update();
 	mirrorHelper.update();
 }
