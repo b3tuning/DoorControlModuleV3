@@ -1,5 +1,5 @@
 //
-// Created by b3tuning@gmail.com 3/20/20.
+// Created by b3tuning@gmail.com 3/20/2020
 //
 
 #include <MirrorHelper.h>
@@ -211,28 +211,28 @@ void MirrorHelper::getDiag() {
 	int diag = controller.getSysDiagnosis();
 
 	if(diag == TLE94108::TLE_STATUS_OK) {
-		Serial.print("TLE NO ERRORS");
+//		Serial.print("TLE NO ERRORS");
 	} else {
 		if(controller.getSysDiagnosis(controller.TLE_SPI_ERROR) != 0) {
-			Serial.print("TLE_SPI_ERROR!!!!!!");
+//			Serial.print("TLE_SPI_ERROR!!!!!!");
 		}
 		if(controller.getSysDiagnosis(controller.TLE_UNDER_VOLTAGE) != 0) {
-			Serial.print("TLE_UNDER_VOLTAGE!!!!!!");
+//			Serial.print("TLE_UNDER_VOLTAGE!!!!!!");
 		}
 		if(controller.getSysDiagnosis(controller.TLE_OVER_VOLTAGE) != 0) {
-			Serial.print("TLE_OVER_VOLTAGE!!!!!!");
+//			Serial.print("TLE_OVER_VOLTAGE!!!!!!");
 		}
 		if(controller.getSysDiagnosis(controller.TLE_POWER_ON_RESET) != 0) {
-			Serial.print("TLE_POWER_ON_RESET!!!!!!");
+//			Serial.print("TLE_POWER_ON_RESET!!!!!!");
 		}
 		if(controller.getSysDiagnosis(controller.TLE_TEMP_SHUTDOWN) != 0) {
-			Serial.print("TLE_TEMP_SHUTDOWN!!!!!!");
+//			Serial.print("TLE_TEMP_SHUTDOWN!!!!!!");
 		}
 		if(controller.getSysDiagnosis(controller.TLE_TEMP_WARNING) != 0) {
-			Serial.print("TLE_TEMP_WARNING!!!!!!");
+//			Serial.print("TLE_TEMP_WARNING!!!!!!");
 		}
 		if(controller.getSysDiagnosis(controller.TLE_LOAD_ERROR) != 0) {
-			Serial.print("TLE_LOAD_ERROR!!!!!!");
+//			Serial.print("TLE_LOAD_ERROR!!!!!!");
 		}
 	}
 	Serial.println();

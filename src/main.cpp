@@ -1,5 +1,5 @@
 //
-// Created by b3tuning@gmail.com 3/20/20.
+// Created by b3tuning@gmail.com 3/20/2020
 //
 
 #include <Arduino.h>
@@ -12,7 +12,37 @@
 #include <CommsHelper.h>
 
 /**
- * ******************************************************************************
+ * ***************************************************************************************
+ * AMP SuperSeal 26 Pinout
+ *
+ *  1 --> FOLD_A
+ *  2 --> FOLD_B
+ *  3 <-- P_WIN
+ *  4 <-- MIR_ADJ
+ *  5 <-- VBAT
+ *  6 <-- VBAT
+ *  7 --> WIN_A
+ *  8 --> MIR_COM
+ *  9 <-- REV_IN
+ * 10 --> P_MIR
+ * 11 --> D_MIR
+ * 12 <-- MIR_SEL
+ * 13 --> WIN_A
+ * 14 --> MIR_V
+ * 15 <-- ILLUM_IN
+ * 16 <-- RX
+ * 17 <-- GND
+ * 18 <-- GND
+ * 19 --> WIN_B
+ * 20 --> MIR_H
+ * 21 <-- D_WIN
+ * 22 --> ILLUM_OUT
+ * 23 --> TX
+ * 24 <-- GND
+ * 25 <-- GND
+ * 26 --> WIN_B
+ *
+ * ***************************************************************************************
  * Arduino Pinout
  *
  *  1 -->  D1 --> TX            --> 26 Pin --> 23
@@ -39,7 +69,7 @@
  * 26 <--  A7 <-- REV_IN        <-- 26 Pin <--  9
  *
  *
- * ******************************************************************************
+ * ***************************************************************************************
  * TLE94108 Pinout
  *
  * 1  --> Ground
@@ -68,7 +98,7 @@
  * 24 --> Ground
  * 25 --> Ground
  *
- * ******************************************************************************
+ * ***************************************************************************************
  * DT-15 Pinout
  *
  * 1  --> Window B --> Pololu
@@ -84,7 +114,7 @@
  * 11 --> Mirror Vert                       <-- TLE94108 --> Pin 22
  * 12 --> Window A --> Pololu
  *
- * ******************************************************************************
+ * ***************************************************************************************
  * DTM-15 Pinout
  *
  * 1  --> TX                                <-- Arduino --> D1
@@ -100,6 +130,17 @@
  * 11 --> Mirror Adjust                     <-- Arduino --> A5 <-- Purple/Red
  * 12 --> RX                                <-- Arduino --> D0
  *
+ * ***************************************************************************************
+ * Porsche Window Switch (Driver)
+ *
+ *  1 <-- Red/Green    -- Ground
+ *  2 <-- Red/Blue     -- Illumination
+ *  3 --> Purple/Red   -- Mirror Adjust
+ *  4 <-- Green/Black  -- Driver Mirror Selected
+ *  5 <-- Blue/Black   -- Passenger Mirror Selected
+ *  6 --> Purple/White -- Mirror Select
+ *  7 --> Red/Yellow   -- Driver Window
+ *  8 --> Red/White    -- Passenger Window
  *
  */
 
@@ -141,10 +182,10 @@ WindowHelper windowHelper(moduleHelper);
 
 void setup() {
 	Serial.begin(9600);
-	while(!Serial) {
-		delay(100);
-	}
-	Serial.println("STARTING....");
+//	while(!Serial) {
+//		delay(100);
+//	}
+//	Serial.println("STARTING....");
 
 	pinMode(RX, INPUT);
 	pinMode(TX, OUTPUT);
