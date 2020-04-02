@@ -15,32 +15,32 @@
  * ***************************************************************************************
  * AMP SuperSeal 26 Pinout
  *
- *  1 --> FOLD_A
- *  2 --> FOLD_B
- *  3 <-- P_WIN
- *  4 <-- MIR_ADJ
- *  5 <-- VBAT
- *  6 <-- VBAT
- *  7 --> WIN_A
- *  8 --> MIR_COM
- *  9 <-- REV_IN
- * 10 --> P_MIR
- * 11 --> D_MIR
- * 12 <-- MIR_SEL
- * 13 --> WIN_A
- * 14 --> MIR_V
- * 15 <-- ILLUM_IN
- * 16 <-- RX
- * 17 <-- GND
- * 18 <-- GND
- * 19 --> WIN_B
- * 20 --> MIR_H
- * 21 <-- D_WIN
- * 22 --> ILLUM_OUT
- * 23 --> TX
- * 24 <-- GND
- * 25 <-- GND
- * 26 --> WIN_B
+ *  1 --> FOLD_A    --> Blue         --> DTM06-6S --> 3
+ *  2 --> FOLD_B    --> Yellow       --> DTM06-6S --> 4
+ *  3 <-- P_WIN     <-- Red/White    <-- Porsche  <-- 8
+ *  4 <-- MIR_ADJ   <-- Purple/Red   <-- Porsche  <-- 3
+ *  5 <-- VBAT      <-- Red
+ *  6 <-- VBAT      <-- Red
+ *  7 --> WIN_A     -->
+ *  8 --> MIR_COM   --> White        --> DTM06-6S --> 6
+ *  9 <-- REV_IN    <--
+ * 10 --> P_MIR     --> Blue/Black   --> Porsche  --> 5
+ * 11 --> D_MIR     --> Green/Black  --> Porsche  --> 4
+ * 12 <-- MIR_SEL   <-- Purple/White <-- Porsche  <-- 6
+ * 13 --> WIN_A     -->
+ * 14 --> MIR_V     --> Red          --> DTM06-6S --> 2
+ * 15 <-- ILLUM_IN  <--
+ * 16 <-- RX        <-- Red
+ * 17 --> GND       --> Red/Green    --> Porsche  --> 1
+ * 18 <-- GND       <--
+ * 19 --> WIN_B     -->
+ * 20 --> MIR_H     --> Green        --> DTM06-6S --> 5
+ * 21 <-- D_WIN     <-- Red/Yellow   <-- Porsche  <-- 7
+ * 22 --> ILLUM_OUT --> Red/Blue     --> Porsche  --> 2
+ * 23 --> TX        --> Orange
+ * 24 <-- GND       <-- Black
+ * 25 <-- GND       <-- Black
+ * 26 --> WIN_B     -->
  *
  * ***************************************************************************************
  * Arduino Pinout
@@ -133,14 +133,14 @@
  * ***************************************************************************************
  * Porsche Window Switch (Driver)
  *
- *  1 <-- Red/Green    -- Ground
- *  2 <-- Red/Blue     -- Illumination
- *  3 --> Purple/Red   -- Mirror Adjust
- *  4 <-- Green/Black  -- Driver Mirror Selected
- *  5 <-- Blue/Black   -- Passenger Mirror Selected
- *  6 --> Purple/White -- Mirror Select
- *  7 --> Red/Yellow   -- Driver Window
- *  8 --> Red/White    -- Passenger Window
+ *  1 <-- Red/Green    <-- Ground                    <-- 26 Pin <-- 17
+ *  2 <-- Red/Blue     <-- Illumination              <-- 26 Pin <-- 22
+ *  3 --> Purple/Red   --> Mirror Adjust             --> 26 Pin -->  4
+ *  4 <-- Green/Black  <-- Driver Mirror Selected    <-- 26 Pin <-- 11
+ *  5 <-- Blue/Black   <-- Passenger Mirror Selected <-- 26 Pin <-- 10
+ *  6 --> Purple/White --> Mirror Select             --> 26 Pin --> 12
+ *  7 --> Red/Yellow   --> Driver Window             --> 26 Pin --> 21
+ *  8 --> Red/White    --> Passenger Window          --> 26 Pin -->  3
  *
  */
 
@@ -234,3 +234,12 @@ void loop() {
 	windowHelper.update();
 	mirrorHelper.update();
 }
+
+
+
+/************************
+* Memory Usage          *
+* ********************* *
+* RAM   -  708 (34.6%)  *
+* Flash - 6868 (22.4%)  *
+************************/
