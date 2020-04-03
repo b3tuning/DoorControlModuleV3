@@ -10,15 +10,12 @@
 
 class CommsHelper {
 public:
-	CommsHelper(ModuleHelper& module, MODULE_STATE& rxData, EasyTransfer& ETin,
-				EasyTransfer& ETout);
+	explicit CommsHelper(ModuleHelper& module);
 
 	void update();
 
 private:
 	ModuleHelper& _module;
-	MODULE_STATE& _rxData;
-	EasyTransfer ETin, ETout;
 
 	void receiveData();
 

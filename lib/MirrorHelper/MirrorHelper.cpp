@@ -12,8 +12,6 @@ TLE94108 controller = TLE94108();
 MirrorHelper::MirrorHelper(ModuleHelper& module) : _module(module) {
 	previous_fold_ms = millis();
 	controller.begin();
-	stopFold();
-	stopAdjust();
 	folding        = false;
 	adjusting      = false;
 	previousAction = MIRROR_ACTION::STOP;
@@ -99,12 +97,12 @@ void MirrorHelper::adjustUp() {
 }
 
 void MirrorHelper::adjustLeft() {
-	adjustHorizontal(false);
+	adjustHorizontal(true);
 	getDiag();
 }
 
 void MirrorHelper::adjustRight() {
-	adjustHorizontal(true);
+	adjustHorizontal(false);
 	getDiag();
 }
 

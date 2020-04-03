@@ -170,12 +170,9 @@
  */
 MODULE module = MODULE::DRIVER;
 
-//ConfigHelper config;
 MODULE_STATE state;
-MODULE_STATE rxData;
-EasyTransfer in, out;
 ModuleHelper moduleHelper(state, module);
-CommsHelper  commsHelper(moduleHelper, rxData, in, out);
+CommsHelper  commsHelper(moduleHelper);
 ButtonHelper buttonHelper(moduleHelper);
 MirrorHelper mirrorHelper(moduleHelper);
 WindowHelper windowHelper(moduleHelper);
@@ -190,6 +187,8 @@ void setup() {
 	pinMode(RX, INPUT);
 	pinMode(TX, OUTPUT);
 
+	pinMode(LED_BUILTIN, OUTPUT);
+
 	pinMode(POLOLU_DIR, OUTPUT);
 	pinMode(POLOLU_PWM, OUTPUT);
 	pinMode(POLOLU_CUR_SEN_IN, INPUT);
@@ -198,8 +197,6 @@ void setup() {
 	pinMode(DRV_IN2, OUTPUT);
 	pinMode(DRV_FAULT_IN, INPUT_PULLUP);
 
-//	pinMode(TLE_EN, OUTPUT);
-//	pinMode(TLE_SS, OUTPUT);
 	pinMode(TLE_MOSI, OUTPUT);
 	pinMode(TLE_MISO, INPUT_PULLUP);
 	pinMode(TLE_SCK, OUTPUT);
@@ -219,13 +216,10 @@ void setup() {
 	digitalWrite(POLOLU_PWM, LOW);
 	digitalWrite(DRV_IN1, LOW);
 	digitalWrite(DRV_IN2, LOW);
-//	digitalWrite(TLE_EN, LOW);
-//	digitalWrite(TLE_SS, LOW);
 	digitalWrite(TLE_MOSI, LOW);
 	digitalWrite(TLE_SCK, LOW);
 	digitalWrite(D_MIR, LOW);
 	digitalWrite(P_MIR, LOW);
-//	ConfigHelper::test();
 }
 
 void loop() {
@@ -233,6 +227,7 @@ void loop() {
 	commsHelper.update();
 	windowHelper.update();
 	mirrorHelper.update();
+	delay(10);
 }
 
 
@@ -242,4 +237,11 @@ void loop() {
 * ********************* *
 * RAM   -  708 (34.6%)  *
 * Flash - 6868 (22.4%)  *
+************************/
+
+/************************
+* Memory Usage          *
+* ********************* *
+* RAM   -  686 (33.5%)  *
+* Flash - 6892 (22.4%)  *
 ************************/
